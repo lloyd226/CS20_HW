@@ -19,6 +19,12 @@ h3 {
     height: 80%;
 }
 
+@media screen and (max-width: 430px) {
+    .logoImg {
+        width: 110;
+    }
+}
+
 
 .header {
     display: flex;
