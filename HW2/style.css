@@ -1,0 +1,303 @@
+body {
+    margin: 0px;
+    background-color: white;
+    
+}
+
+h3 {
+    font-family: 'Snell Roundhand', cursive;
+    font-size: 30px;
+}
+
+.alt {
+    margin: 0px;
+    background-color: white;
+}
+
+.logoImg {
+    width: 100%;
+    height: 80%;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    background-color: #C95B07;
+    position: fixed;
+    width: 100%;
+    z-index: 1000; 
+    
+}
+
+
+.logo {
+    padding-left: 10px;
+    padding-top: 10px;
+    align-items: center;
+}
+
+.viewBar {
+    width: 400px;
+    display: flex;
+    justify-content: space-between
+    
+}
+
+.buttons {
+    align-content: center;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+
+    transition: all 0.3s ease; 
+}
+
+.buttons:hover {
+    text-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    color: black;
+}
+
+.buttons.active {
+    font-weight: bold;
+
+}
+
+.background {
+    padding-top: 80px;
+    display: block;
+    height: 600px;
+    position: relative;
+}
+
+.backgroundImg {
+    width: 1728px;
+    height: 100%;
+}
+
+.background::after {
+    
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1728px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black tint at 50% opacity */
+    pointer-events: none; /* Allows user clicks to pass through to the image */
+}
+
+.Kitchen96 {
+    font-family: 'Times New Roman', serif;
+    position: absolute;
+    
+    color: white;
+    padding-top: 0px;
+    z-index: 100;
+    padding-top: 12.5%;
+    padding-left: 12.5%;
+}
+
+.kitch {
+    font-size: 58px;
+    font-weight: bold;
+}
+
+.cater {
+    text-align: center;
+    font-style: italic;
+    font-family: 'Snell Roundhand', cursive;
+    font-size: 45px;
+    font-weight: bold;
+    font-style: italic;
+    color: #e9a029;
+}
+
+.titles {
+    display: block;
+    text-align: center;
+    padding-top: 40px;
+    font-family: "Prata", cursive;
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.about {
+    padding-top: 60px;
+}
+
+.titles.about {
+    padding-bottom: 60px;
+    text-align: center;
+    
+
+}
+
+.aboutC {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.about.flex {
+    padding-top: 0;
+    font-size: 18px;
+}
+
+.txt {
+    width: 300px;
+    background-color: lightgray;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: -2px 5px 10px gray;
+    
+}
+
+@media (max-width: 1080px) {
+    .aboutC {
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+}
+
+
+.paragraph {
+    width: 500px;
+    padding-left: 200px;
+    font-size: 18px;
+    text-align: justify;
+    
+    
+}
+.paragraph.two {
+    padding-left: 60%;
+}
+
+@media (max-width: 1275px) {
+    .paragraph.two {
+        padding-left: 200px;
+    }
+
+}
+
+@media (max-width: 715px) {
+    .paragraph{
+        padding-left: 50px;
+    }
+
+    .paragraph.two {
+        padding-left: 50px;
+    }
+
+}
+
+
+.menu {
+    display: block;
+    margin-left: auto;   /* Pushes the element to the right */
+    margin-right: 0; 
+    width: 400px;
+    height: 300px;
+    padding-right: 100px;
+    padding-top: 50px;
+
+    color: white;
+
+    
+}
+
+.contact {
+    align-content: center;
+    text-align: center;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    font-size: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 18px;
+
+    transition: all 0.3s ease; 
+}
+
+.contact:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    color: white;
+    background-color: black;
+}
+
+.contact.active {
+    font-weight: bold;
+}
+
+.lastE {
+    padding-bottom: 75px;
+}
+
+footer {
+    background-color: lightgray;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 10pt;
+    height: 40px;
+}
+
+input {
+    width: 100px;
+    padding: 10px;
+    height: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+
+}
+
+.name {
+    display: block;
+    padding-left: 50px;
+    padding-bottom: 50px;
+}
+
+.contactI {
+    display: block;
+    padding-left: 50px;
+    padding-bottom: 50px;
+}
+
+.info {
+    display: block;
+    padding-left: 50px;
+    padding-bottom: 50px;
+}
+
+.headcount {
+    display: block;
+    padding-left: 50px;
+    padding-bottom: 50px;
+}
+
+#count {
+    
+}
+
+.other {
+    display: block;
+    padding-left: 50px;
+    padding-bottom: 50px;
+}
+
+#other {
+    width: 70%;
+    height: 50px
+}
