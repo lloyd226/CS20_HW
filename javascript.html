@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+            function main() {
+                var songT = [];
+
+                problem1();
+                problem2();
+                problem3();
+                songT = problem4();
+                problem5(songT)
+            }
+
+            function problem1() {
+
+                for(i = 0; i < 5; i++) {
+                    x = Math.round((Math.random() * 5) + 1)
+                    document.write(x + "<br>");
+                }
+
+                document.write("<br> <br>");
+            }
+
+            function problem2(){
+                var x = 0;
+
+                while (x <= 20) {
+                    y = prompt("Enter a Number P2:");
+                    x = x + Number(y)
+                }
+                document.write(x + "<br>");
+                document.write("<br> <br>");
+            }
+
+            function problem3(){
+                var arr1 = [];
+                var sum = 0;
+
+                x = prompt("Enter a Number P3:");
+
+                while(Number(x) >= 0) {
+                    arr1 = arr1.concat(Number(x))
+                    x = prompt("Enter a Number P3:");
+                }
+                document.write(arr1 + "<br>");
+
+                arr1.forEach(element => {
+                    sum+= element;
+                });
+                
+                document.write(sum + "<br>");
+                document.write("<br> <br>");
+            }
+
+            function problem4(){
+                var songs = [];
+                songs["Happy"] = "Pharell";
+                songs["Nevermind"] = "Rod Wave";
+                songs["25"] = "Rod Wave";
+                songs["Resentment"] = "Partynextdoor";
+                songs["Last Day Out"] = "Rio";
+
+                for (song in songs){
+                    document.write(song + " " + songs[song] + "<br>")
+                };
+                document.write("<br> <br>");
+
+                return songs;
+            }
+
+            function problem5(songs){
+                input = prompt("Enter A Band");
+
+                for (song in songs) {
+                    if(songs[song] == input) {
+                        document.write(song + "<br>");
+                    }
+                };
+            }
+
+            main();
+
+        </script>
+    </head>
+    <body>    
+    </body>
+</html>
