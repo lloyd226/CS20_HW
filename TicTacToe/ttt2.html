@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+            .title {
+                text-align: center;
+            }
+
+            .grid {
+                display: grid;
+                justify-content: center;
+                grid-template-columns: 100px 100px 100px;
+                
+            }
+
+            .square {
+                border: 1px solid black;
+                padding: 10px;
+                width: 75px;
+                height: 75px;
+                font-size: 50px;
+                text-align: center;
+            }
+
+            .square:hover {
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                background-color: rgb(247, 184, 9);
+            }
+
+            .turn {
+                border: 2px solid black;
+                text-align: center;
+                margin: 0 auto;
+                width: fit-content;
+            }
+            
+            .winner{
+                border: 2px solid black;
+                text-align: center;
+                margin: 0 auto;
+                width: fit-content;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="title"> Tic Tac Toe</h1>
+        <div class="turn">
+            <script>
+                var playerTurn = "X"
+
+                document.write("Player " + playerTurn + " Turn")
+
+            </script>
+        </div>
+        <div class="grid">
+            <script>
+                const NUM_SQUARES = 9;
+                var box = null;
+
+                for (i=0; i<NUM_SQUARES; i++)
+                {
+                    id = "sq" + i;
+                    document.write("<div class='square' id='" + id + "'></div>");
+                }
+                
+                box = document.getElementById("sq2");
+                box.textContent = 'X';
+                box = document.getElementById("sq3");
+                box.textContent = 'O';
+
+            </script>
+        </div>
+
+        <div class="winner">
+            The Winner is ___
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+            .title {
+                text-align: center;
+            }
+
+            .grid {
+                display: grid;
+                justify-content: center;
+                grid-template-columns: 100px 100px 100px;
+                
+            }
+
+            .square {
+                border: 1px solid black;
+                padding: 10px;
+                width: 75px;
+                height: 75px;
+                font-size: 50px;
+                text-align: center;
+            }
+
+            .square:hover {
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                background-color: rgb(247, 184, 9);
+            }
+
+            .turn {
+                border: 2px solid black;
+                text-align: center;
+                margin: 0 auto;
+                width: fit-content;
+            }
+            
+            .winner{
+                border: 2px solid black;
+                text-align: center;
+                margin: 0 auto;
+                width: fit-content;
+            }
+
+            .start {
+                background-color: #00FF00;
+                margin-top: 50px;
+                text-align: center;
+                margin-left: 50%;
+                width: 50px;
+            }
+
+            .start:hover {
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                background-color: #006400;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="title"> Tic Tac Toe</h1>
+        <div class="turn"id="turn">
+            <script>
+                var random_num = Math.round(Math.random() + 1);
+                var playerTurn;
+
+                if (random_num == 1){
+                    playerTurn = "X";
+                } else {
+                    playerTurn = "O";
+                }
+
+                document.write("Player " + playerTurn + " Turn");
+            </script>
+        </div>
+        <div class="grid">
+            <script>
+                const NUM_SQUARES = 9;
+                var board_curr = [0,0,0,0,0,0,0,0,0];
+                var box = null;
+
+                for (let i=0; i<NUM_SQUARES; i++)
+                {
+                    id = "sq" + i;
+                    document.write("<div class='square' id='" + id + "'></div>");
+                }
+                
+                for (let i=0; i<NUM_SQUARES; i++){
+                    box = document.getElementById("sq" + i);
+                    box.addEventListener("click", function() {
+                        alert("This is square number" + this.id + ".");
+                        if (board_curr[i] == 0){
+                            board_curr[i] = 1;
+                            this.textContent = playerTurn;
+                            if (playerTurn == "X") {
+                                playerTurn = "O";
+                                
+                            } else {
+                                playerTurn = "X";
+                            }
+                            document.getElementById("turn").textContent = "Player " + playerTurn + " Turn";
+                        }
+                    });
+                }
+
+            </script>
+        </div>
+
+        <div class="winner">
+            The Winner is ___
+        </div>
+        <div class="start" id="start">
+            Start
+        </div>
+
+        <script>
+                currdiv = document.getElementById("start")
+                currdiv.addEventListener("click", function() {
+                    for (let i=0; i<NUM_SQUARES;i++){
+                        board_curr[i] = 0;
+                        document.getElementById("sq" + i).textContent = "";
+                    }
+
+                    random_num = Math.round(Math.random() + 1);
+                    if (random_num == 1){
+                        playerTurn = "X";
+                    } else {
+                        playerTurn = "O";
+                    }
+                    document.getElementById("turn").textContent = "Player " + playerTurn + " Turn";
+                });
+            </script>
+
+    </body>
+</html>
