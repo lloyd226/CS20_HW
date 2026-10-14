@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .out {
+                display: flex;
+                justify-content: space-between;
+                padding: 50px;
+            }
+
+            .info {
+                display: flex;
+                justify-content: space-evenly;
+            }
+
+            .essay {
+                padding-top: 50px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1 class="out" id="out"></h1>
+        <div class="content" id="content"></div>
+        <div class="essay"> The API is the star wars api and it contains information 
+            on specific planets. I was honestly looking for a good free api and 
+            rember someone mentioned it so I deciced to use it.
+        </div>
+
+        <a href="https://swapi.dev/documentation">Star Wars API</a>
+
+        <script>
+            var resObj1 = "";
+            var resObj2 = "";
+            var txt = "";
+            res = 
+            fetch("https://swapi.dev/api/planets/1/")
+                .then (res => res.text())
+                .then (response => {
+                    resObj1 = JSON.parse(response);
+                    
+                    
+                    txt = `
+                        <div> Planet ${resObj1.name}</div>
+                                 
+                    `
+                    document.getElementById("out").innerHTML = txt;
+
+                        txt = `
+                            <div class="info">
+                                <div> Rotation Period: ${resObj1.rotation_period}</div>
+                                <div> Orbital Period: ${resObj1.orbital_period}</div>
+                                <div> Climate: ${resObj1.climate}</div>
+                                <div> Gravity: ${resObj1.gravity}</div>
+                                <div> Terrain: ${resObj1.terrain}</div>
+                                <div> Population: ${resObj1.population}</div>
+                            </div>
+                        `
+                    
+                    
+                    document.getElementById("content").innerHTML = txt;
+
+                })
+                .catch (error => console.log(error))
+
+        </script> 
+    </body>
+
+</html>
