@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            div {
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="result"></div>
+        <button id="button">Get Data</button>
+        <script>
+
+            var result = "";
+            var htmlOut = "";
+            const value = document.getElementById("button");
+            value.addEventListener("click", function() {
+                $.get("products.json", function(data) {
+                    result = data;
+                    
+                    
+                    result.forEach(x => {
+                        htmlOut += `
+                            <h1 class="name"> ${x.Name} </h1>
+                            <div class="description"> ${x.Description} </div>
+                            <div class="price"> Price:  ${x.Price} </div>
+                            <div class="category"> Categories:  ${x.Category} </div>
+                        `
+                    });
+                    document.getElementById("result").innerHTML = htmlOut;         
+                });
+            });
+            
+        </script>
+    </body>
+
+</html>

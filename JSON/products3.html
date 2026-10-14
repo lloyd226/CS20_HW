@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            div {
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <select id="filter">
+            <option> All </option>
+        </select>
+        <div id="result"></div>
+        <button id="button">Get Data</button>
+        <script>
+            
+            var result = "";
+            var filtered = "";
+            var categories = [];
+            const value = document.getElementById("button");
+            const filter = document.getElementById("filter");
+
+            function printResults(result) {
+                var htmlOut = "";
+                result.forEach(x => {
+                        htmlOut += `
+                            <h1 class="name"> ${x.Name} </h1>
+                            <div class="description"> ${x.Description} </div>
+                            <div class="price"> Price:  ${x.Price} </div>
+                            <div class="category"> Categories:  ${x.Category} </div>
+                        `;
+                });
+                return htmlOut;
+            }
+
+            function printTitles(result) {
+                var htmlOut = "";
+                result.forEach(x => {
+                        htmlOut += `
+                            <h1 class="name"> ${x.Name} </h1>
+                        `;
+                });
+                return htmlOut;
+            }
+
+            function getCategories(result){
+
+                result.forEach(x => {
+                    x.Category.forEach(y => {
+                        if (!categories.includes(y)){
+                            categories.push(y);
+                        }
+                    })
+                })
+
+                categories.forEach(cat => {
+                    filter.innerHTML += `<option> ${cat} </option>`
+                })
+            }
+
+
+            function filterOutput(data) {
+                var filteredOut = [];
+                data.forEach(x => {
+                    if (x.Category.includes(filter.value)) {
+                        filteredOut.push(x);
+                    }
+                    
+                });
+
+                if (filter.value == "All"){             
+                    document.getElementById("result").innerHTML = printResults(data);
+                } else {
+                    document.getElementById("result").innerHTML = printTitles(filteredOut);
+                }
+            }
+
+            
+            value.addEventListener("click", function() {
+                $.get("products.json", function(data) {
+                    getCategories(data);
+                    document.getElementById("result").innerHTML = printResults(data);
+                });
+            });
+
+            filter.addEventListener("change", function() {
+                $.get("products.json", function(data) {
+                    filterOutput(data);
+                });
+            });
+            
+        </script>
+    </body>
+
+</html>
